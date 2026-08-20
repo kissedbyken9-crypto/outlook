@@ -1,3 +1,4 @@
+import os
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import FileResponse
@@ -61,4 +62,4 @@ def serve_frontend():
 # --- 5. RUN THE SERVER PROGRAMMATICALLY ---
 if __name__ == "__main__":
     import uvicorn
-    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=True)
+uvicorn.run(app, host="0.0.0.0", port=int(os.environ.get("PORT", 8000)))
